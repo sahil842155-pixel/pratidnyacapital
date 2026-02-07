@@ -9,12 +9,41 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Learn Trading & Financial Markets | Pratidnya Capital</title>
+  <title>Pratidnya Capital | Financial Markets Education</title>
 
-  <meta name="description" content="Pratidnya Capital is an educational initiative focused on teaching trading and financial markets as a disciplined, long-term skill. No tips. No shortcuts. Only structured learning." />
+  <meta name="description" content="Pratidnya Capital is an educational initiative focused on understanding money, markets, and disciplined learning. No tips. No shortcuts." />
   <meta name="keywords" content="financial markets education, trading education india, market foundations, learn trading responsibly" />
   <meta name="author" content="Sahil Mishra" />
   <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pratidnya Capital | Financial Markets Education" />
+  <meta property="og:description" content="Understanding money and markets with discipline and clarity." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/" />
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pratidnya Capital | Financial Markets Education" />
+  <meta name="twitter:description" content="Understanding money and markets with discipline and clarity." />
+  <meta name="twitter:image" content="https://yourdomain.com/og-image.jpg" />
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Pratidnya Capital",
+    "url": "https://yourdomain.com/",
+    "logo": "https://yourdomain.com/P%20Capital.png",
+    "description": "An educational initiative focused on financial markets and disciplined learning. No advisory services are provided.",
+    "founder": {
+      "@type": "Person",
+      "name": "Sahil Mishra"
+    }
+  }
+  </script>
 
   <link rel="icon" href="favicon.ico">
 
@@ -41,16 +70,13 @@ body {
   line-height: 1.75;
 }
 
-/* =====================
-   HERO
-===================== */
-
+/* HERO */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   padding: 0 8%;
-  background-image:
+  background:
     linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
     url("hero.jpg");
   background-size: cover;
@@ -59,7 +85,7 @@ body {
 
 .hero-content {
   max-width: 620px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .hero-logo {
@@ -86,10 +112,7 @@ body {
   color: rgba(255,255,255,0.8);
 }
 
-/* =====================
-   CONTENT
-===================== */
-
+/* CONTENT */
 .container {
   max-width: 880px;
   margin: 0 auto;
@@ -126,10 +149,7 @@ p {
   font-family: 'Playfair Display', serif;
 }
 
-/* =====================
-   BUTTONS
-===================== */
-
+/* BUTTONS */
 .apply-btn {
   display: inline-block;
   margin-top: 36px;
@@ -156,10 +176,7 @@ p {
   color: #fff;
 }
 
-/* =====================
-   FLOATING MESSAGE
-===================== */
-
+/* FLOATING MESSAGE */
 .floating-message {
   position: fixed;
   bottom: 24px;
@@ -169,14 +186,59 @@ p {
   padding: 12px 18px;
   border-radius: 50px;
   font-size: 0.9rem;
-  text-decoration: none;
+  cursor: pointer;
   z-index: 999;
 }
 
-/* =====================
-   SIDEBAR
-===================== */
+/* MESSAGE MODAL */
+.message-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
 
+.message-box {
+  background: #fff;
+  padding: 32px;
+  width: 90%;
+  max-width: 420px;
+  position: relative;
+}
+
+.message-box h3 {
+  margin-bottom: 16px;
+  font-family: 'Playfair Display', serif;
+}
+
+.message-box input,
+.message-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+}
+
+.message-box button {
+  background: var(--text);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+/* SIDEBAR */
 .menu-toggle {
   position: fixed;
   top: 24px;
@@ -184,7 +246,7 @@ p {
   font-size: 1.6rem;
   cursor: pointer;
   z-index: 1000;
-  color: #ffffff;
+  color: #fff;
 }
 
 .sidebar {
@@ -201,7 +263,7 @@ p {
 
 .sidebar a {
   display: block;
-  color: #ffffff;
+  color: #fff;
   text-decoration: none;
   margin-bottom: 24px;
 }
@@ -210,27 +272,18 @@ p {
   right: 0;
 }
 
-/* =====================
-   FOOTER
-===================== */
-
+/* FOOTER */
 footer {
   border-top: 1px solid var(--line);
   padding: 48px 24px;
   text-align: center;
   font-size: 0.85rem;
   color: var(--muted);
-  background: #ffffff;
+  background: #fff;
 }
 
-/* =====================
-   MOBILE
-===================== */
-
 @media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2.2rem;
-  }
+  .hero h1 { font-size: 2.2rem; }
 }
 </style>
 </head>
@@ -239,7 +292,6 @@ footer {
 
 <!-- Sidebar -->
 <div class="menu-toggle" onclick="toggleMenu()">⋮</div>
-
 <nav class="sidebar" id="sidebar">
   <a href="#home">Home</a>
   <a href="#philosophy">Philosophy</a>
@@ -274,12 +326,6 @@ footer {
   <p>Dedicated exclusively to education in financial markets. No tips. No guarantees.</p>
 </section>
 
-<section>
-  <h2>Introduction</h2>
-  <div class="divider"></div>
-  <div class="video-box">Introduction video coming soon</div>
-</section>
-
 <section id="apply">
   <h2>Apply</h2>
   <div class="divider"></div>
@@ -294,19 +340,38 @@ footer {
 </div>
 
 <footer>
-  <div><strong>PRATIDNYA CAPITAL</strong></div>
-  <div style="margin-top:8px;">An educative initiative · No investment advice provided</div>
+  <strong>PRATIDNYA CAPITAL</strong><br>
+  An educative initiative · No investment advice provided
 </footer>
 
-<a href="#apply" class="floating-message">Message</a>
+<!-- Floating Message -->
+<button class="floating-message" onclick="openMessage()">Message</button>
+
+<!-- Message Modal -->
+<div class="message-modal" id="messageModal">
+  <div class="message-box">
+    <span class="close-modal" onclick="closeMessage()">×</span>
+    <h3>Send a Message</h3>
+    <form action="https://formsubmit.co/your@email.com" method="POST">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
 
 <script>
 function toggleMenu() {
   document.getElementById("sidebar").classList.toggle("active");
 }
+function openMessage() {
+  document.getElementById("messageModal").style.display = "flex";
+}
+function closeMessage() {
+  document.getElementById("messageModal").style.display = "none";
+}
 </script>
 
 </body>
 </html>
-
-
