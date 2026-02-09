@@ -345,21 +345,27 @@ footer {
 </footer>
 
 <!-- Floating Message -->
-<button class="floating-message" onclick="openMessage()">Message</button>
+<a href="#contact" class="floating-message">Message</a>
 
 <!-- Message Modal -->
-<div class="message-modal" id="messageModal">
-  <div class="message-box">
-    <span class="close-modal" onclick="closeMessage()">×</span>
-    <h3>Send a Message</h3>
-    <form action="https://formsubmit.co/your@email.com" method="POST">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
-      <textarea name="message" placeholder="Your message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </div>
-</div>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>
+    If you have a genuine question about the program or the learning approach,
+    you may reach out using the form below.
+  </p>
+
+  <form action="https://docs.google.com/forms/d/e/1FAIpQLSfcscO0WNvwfWZYSGLLdaAkV4zBs3v6nWGF_t_aXsdpMWfdFQ/viewform?usp=publish-editor" method="POST">
+    <input type="hidden" name="_subject" value="Message from Pratidnya Capital website">
+    <input type="hidden" name="_captcha" value="false">
+
+    <input type="text" name="name" placeholder="Your name" required>
+    <input type="email" name="email" placeholder="Your email" required>
+    <textarea name="message" placeholder="Your message" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+</section>
 
 <script>
 function toggleMenu() {
