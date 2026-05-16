@@ -11,23 +11,23 @@
 
   <title>Pratidnya Capital | Financial Markets Education</title>
 
-  <meta name="description" content="Pratidnya Capital is an educational initiative focused on understanding money, markets, and disciplined learning. No tips. No shortcuts." />
-  <meta name="keywords" content="financial markets education, trading education india, market foundations, learn trading responsibly" />
+  <meta name="description" content="Pratidnya Capital is an educational initiative teaching financial markets as a structured skill. Small-group live sessions. No tips. No shortcuts. No advisory." />
+  <meta name="keywords" content="financial markets education, trading education india, market foundations, learn trading responsibly, stock market course india" />
   <meta name="author" content="Sahil Mishra" />
   <meta name="robots" content="index, follow" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Pratidnya Capital | Financial Markets Education" />
-  <meta property="og:description" content="Understanding money and markets with discipline and clarity." />
+  <meta property="og:description" content="Teaching financial markets as a skill, not a shortcut. Small-group live sessions. No tips. No advisory." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourdomain.com/" />
-  <meta property="og:image" content="https://yourdomain.com/og-image.jpg" />
+  <meta property="og:url" content="https://www.pratidnyacapital.in/" />
+  <meta property="og:image" content="https://www.pratidnyacapital.in/og-image.jpg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pratidnya Capital | Financial Markets Education" />
-  <meta name="twitter:description" content="Understanding money and markets with discipline and clarity." />
-  <meta name="twitter:image" content="https://yourdomain.com/og-image.jpg" />
+  <meta name="twitter:description" content="Teaching financial markets as a skill, not a shortcut. Small-group live sessions. No tips. No advisory." />
+  <meta name="twitter:image" content="https://www.pratidnyacapital.in/og-image.jpg" />
 
   <!-- Schema -->
   <script type="application/ld+json">
@@ -35,8 +35,8 @@
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "Pratidnya Capital",
-    "url": "https://yourdomain.com/",
-    "logo": "https://yourdomain.com/P%20Capital.png",
+    "url": "https://www.pratidnyacapital.in/",
+    "logo": "https://www.pratidnyacapital.in/P%20Capital.png",
     "description": "An educational initiative focused on financial markets and disciplined learning. No advisory services are provided.",
     "founder": {
       "@type": "Person",
@@ -46,451 +46,1041 @@
   </script>
 
   <link rel="icon" href="favicon.ico">
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+/* ── TOKENS ─────────────────────────────────────────── */
 :root {
-  --bg: #F4F3F1;
-  --text: #1B1B1B;
-  --muted: #4F4F4F;
-  --line: #D8D8D6;
+  --bg:        #0D0D0D;
+  --surface:   #141414;
+  --surface2:  #1A1A1A;
+  --border:    #2A2A2A;
+  --gold:      #C9A84C;
+  --gold-dim:  #8A6F30;
+  --text:      #F0EDE6;
+  --muted:     #888880;
+  --soft:      #C5C2BA;
+  --white:     #FFFFFF;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* ── RESET ───────────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Inter', system-ui, sans-serif;
-  line-height: 1.75;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  overflow-x: hidden;
 }
 
-/* HERO */
+/* ── NAV ─────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 6%;
+  background: rgba(13,13,13,0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+nav.scrolled { border-bottom-color: var(--border); }
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo img {
+  height: 36px;
+  opacity: 0.92;
+}
+
+.nav-logo span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  padding: 9px 22px;
+  border: 1px solid var(--gold);
+  color: var(--gold) !important;
+  border-radius: 2px;
+  font-size: 0.78rem !important;
+  transition: all 0.25s !important;
+}
+
+.nav-cta:hover {
+  background: var(--gold) !important;
+  color: var(--bg) !important;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: var(--text);
+  transition: all 0.3s;
+}
+
+/* Mobile nav drawer */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: 0; right: -100%;
+  width: min(300px, 85vw);
+  height: 100vh;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  z-index: 200;
+  padding: 80px 32px 40px;
+  flex-direction: column;
+  gap: 32px;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-drawer.open { right: 0; }
+
+.mobile-drawer a {
+  color: var(--soft);
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+
+.mobile-drawer a:hover { color: var(--gold); }
+
+.drawer-close {
+  position: absolute;
+  top: 24px; right: 24px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--muted);
+  background: none;
+  border: none;
+}
+
+.drawer-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 150;
+}
+
+/* ── HERO ────────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 0 8%;
+  padding: 0 6%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-    url("hero.jpg");
-  background-size: cover;
-  background-position: center;
+    linear-gradient(135deg, rgba(13,13,13,0.97) 40%, rgba(201,168,76,0.06) 100%),
+    url("hero.jpg") center/cover no-repeat;
+  z-index: 0;
+}
+
+/* Decorative grid lines */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
 }
 
 .hero-content {
-  max-width: 620px;
-  color: #fff;
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  animation: fadeUp 1s ease both;
 }
 
-.hero-logo {
-  height: 96px;
-  margin-bottom: 32px;
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  margin-bottom: 16px;
-}
-
-.tagline {
-  font-size: 1.25rem;
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
   margin-bottom: 28px;
 }
 
-.hero p {
-  color: rgba(255,255,255,0.9);
-}
-
-.subtext {
-  color: rgba(255,255,255,0.8);
-}
-
-/* CONTENT */
-.container {
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 96px 24px;
-}
-
-section {
-  margin-bottom: 110px;
-}
-
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-}
-
-p {
-  color: var(--muted);
-  max-width: 720px;
-}
-
-.divider {
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
   height: 1px;
-  background: var(--line);
-  width: 80px;
-  margin: 32px 0;
+  background: var(--gold);
 }
 
-.video-box {
-  border: 1px solid var(--line);
-  padding: 72px;
-  text-align: center;
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 28px;
+  color: var(--white);
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--soft);
+  max-width: 520px;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.hero-disclaimer {
+  font-size: 0.8rem;
   color: var(--muted);
-  font-family: 'Playfair Display', serif;
+  margin-bottom: 44px;
+  letter-spacing: 0.04em;
 }
 
-/* BUTTONS */
-.apply-btn {
+.btn-primary {
   display: inline-block;
-  margin-top: 36px;
-  padding: 14px 34px;
-  border: 1px solid var(--text);
-  color: var(--text);
+  padding: 15px 38px;
+  background: var(--gold);
+  color: var(--bg);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 2px;
   transition: all 0.25s ease;
 }
 
-.apply-btn:hover {
-  background: var(--text);
-  color: var(--bg);
+.btn-primary:hover {
+  background: #d4b563;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(201,168,76,0.25);
 }
 
-.apply-btn.secondary {
-  border-color: var(--muted);
+/* Stats bar */
+.hero-stats {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 1;
+  display: flex;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 1.2s 0.4s ease both;
+}
+
+.stat-item {
+  flex: 1;
+  padding: 28px 40px;
+  border-right: 1px solid var(--border);
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
   color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
-.apply-btn.secondary:hover {
-  background: var(--muted);
-  color: #fff;
+/* ── SECTIONS ────────────────────────────────────────── */
+.section {
+  padding: 110px 6%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-/* FLOATING MESSAGE */
-.floating-message {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: var(--text);
-  color: var(--bg);
-  padding: 12px 18px;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  z-index: 999;
+.section-inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 64px;
+  align-items: start;
 }
 
-/* MESSAGE MODAL */
-.message-modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 6px;
+  position: sticky;
+  top: 90px;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.9rem, 3vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 28px;
+  color: var(--white);
+}
+
+h2 em { font-style: italic; color: var(--gold); }
+
+.body-text {
+  color: var(--soft);
+  font-size: 1rem;
+  line-height: 1.85;
+  margin-bottom: 20px;
+  max-width: 640px;
+}
+
+.body-text strong { color: var(--text); font-weight: 500; }
+
+/* Section divider */
+.s-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ── PHILOSOPHY PILLARS ──────────────────────────────── */
+.pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 40px;
+}
+
+.pillar {
+  background: var(--surface);
+  padding: 28px 32px;
+  transition: background 0.2s;
+}
+
+.pillar:hover { background: var(--surface2); }
+
+.pillar-icon {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.pillar-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.pillar-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── PROGRAM DETAILS ─────────────────────────────────── */
+.program-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.program-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 28px;
+  border-radius: 2px;
+}
+
+.program-card-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 8px;
+}
+
+.program-card-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+.curriculum-list {
+  list-style: none;
+  margin-top: 36px;
+  border: 1px solid var(--border);
+}
+
+.curriculum-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+  color: var(--soft);
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.curriculum-list li:last-child { border-bottom: none; }
+.curriculum-list li:hover { background: var(--surface); }
+
+.curriculum-list li::before {
+  content: '—';
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── FOUNDER ─────────────────────────────────────────── */
+.founder-block {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 8px;
+}
+
+.founder-photo-area {
+  aspect-ratio: 3/4;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1001;
-}
-
-.message-box {
-  background: #fff;
-  padding: 32px;
-  width: 90%;
-  max-width: 420px;
   position: relative;
+  overflow: hidden;
 }
 
-.message-box h3 {
-  margin-bottom: 16px;
-  font-family: 'Playfair Display', serif;
-}
-
-.message-box input,
-.message-box textarea {
+.founder-photo-area img {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border: 1px solid var(--line);
+  height: 100%;
+  object-fit: cover;
 }
 
-.message-box button {
-  background: var(--text);
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
+.founder-photo-placeholder {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 24px;
+  line-height: 1.6;
 }
 
-.close-modal {
-  position: absolute;
-  top: 12px;
-  right: 14px;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-/* SIDEBAR */
-.menu-toggle {
-  position: fixed;
-  top: 24px;
-  right: 24px;
-  font-size: 1.6rem;
-  cursor: pointer;
-  z-index: 1000;
-  color: #fff;
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -260px;
-  width: 260px;
-  height: 100vh;
-  background: #111;
-  padding: 80px 24px;
-  transition: right 0.3s ease;
-  z-index: 999;
-}
-
-.sidebar a {
+.founder-photo-placeholder .initials {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: var(--gold-dim);
   display: block;
-  color: #fff;
-  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+.founder-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.founder-title {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 28px;
+}
+
+/* ── TESTIMONIALS ────────────────────────────────────── */
+.testimonials-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-top: 48px;
+}
+
+.testimonial {
+  background: var(--surface);
+  padding: 36px 32px;
+}
+
+.testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--soft);
+  line-height: 1.7;
   margin-bottom: 24px;
 }
 
-.sidebar.active {
-  right: 0;
+.testimonial-quote::before {
+  content: '\201C';
+  font-size: 2rem;
+  color: var(--gold);
+  line-height: 0;
+  vertical-align: -0.4em;
+  margin-right: 4px;
 }
 
-/* FOOTER */
-footer {
-  border-top: 1px solid var(--line);
-  padding: 48px 24px;
-  text-align: center;
-  font-size: 0.85rem;
+.testimonial-author {
+  font-size: 0.78rem;
   color: var(--muted);
-  background: #fff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.testimonial-author strong {
+  display: block;
+  color: var(--text);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  margin-bottom: 2px;
+}
+
+/* Placeholder note */
+.testimonial-placeholder-note {
+  font-size: 0.75rem;
+  color: var(--border);
+  margin-top: 8px;
+  font-style: italic;
+  display: none; /* hide in prod — shown only as reminder */
+}
+
+/* ── MISSION ─────────────────────────────────────────── */
+.mission-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  color: var(--surface2);
+  line-height: 1;
+  font-weight: 600;
+  margin-bottom: -20px;
+  display: block;
+  user-select: none;
+}
+
+/* ── APPLY ───────────────────────────────────────────── */
+.apply-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 110px 6%;
+}
+
+.apply-section h2 {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  margin-bottom: 20px;
+}
+
+.apply-section .body-text {
+  margin: 0 auto 48px;
+  max-width: 520px;
+  text-align: center;
+}
+
+.apply-note {
+  margin-top: 20px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.apply-note a {
+  color: var(--gold-dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: var(--text);
+  letter-spacing: 0.06em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--gold); }
+
+.footer-copy {
+  width: 100%;
+  font-size: 0.72rem;
+  color: var(--border);
+  letter-spacing: 0.04em;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+/* ── SCROLL ANIMATIONS ───────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 900px) {
+  .section-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .section-label { position: static; }
+
+  .pillars { grid-template-columns: 1fr; }
+
+  .program-grid { grid-template-columns: 1fr 1fr; }
+
+  .testimonials-grid { grid-template-columns: 1fr; }
+
+  .founder-block { grid-template-columns: 1fr; }
+
+  .founder-photo-area { max-width: 240px; }
+
+  .hero-stats { display: none; }
+
+  .nav-links { display: none; }
+
+  .hamburger { display: flex; }
+
+  .mobile-drawer { display: flex; }
 }
 
 @media (max-width: 600px) {
-  .hero h1 { font-size: 2.2rem; }
+  .program-grid { grid-template-columns: 1fr; }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero { padding: 100px 6% 60px; }
 }
 </style>
 </head>
-
 <body>
 
-<!-- Sidebar -->
-<div class="menu-toggle" onclick="toggleMenu()">⋮</div>
-<nav class="sidebar" id="sidebar">
-  <a href="#home">Home</a>
-  <a href="#philosophy">Philosophy</a>
-  <a href="#initiative">Initiative</a>
-  <a href="#apply">Apply</a>
-  <a href="tel:+918421553808">Call Us</a>
-  <a href="mailto:sahil842155@gmail.com">Email Us</a>
+<!-- ── NAV ─────────────────────────────────────────── -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <img src="P Capital.png" alt="Pratidnya Capital">
+    <span>Pratidnya Capital</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#founder">About</a></li>
+    <li><a href="#apply" class="nav-cta">Apply Now</a></li>
+  </ul>
+
+  <div class="hamburger" onclick="openDrawer()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </div>
 </nav>
 
-<!-- Hero -->
+<!-- Mobile drawer -->
+<div class="drawer-overlay" id="overlay" onclick="closeDrawer()"></div>
+<div class="mobile-drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  <a href="#philosophy" onclick="closeDrawer()">Philosophy</a>
+  <a href="#program" onclick="closeDrawer()">Program</a>
+  <a href="#founder" onclick="closeDrawer()">About</a>
+  <a href="tel:+918421553808" onclick="closeDrawer()">Call Us</a>
+  <a href="mailto:sahil842155@gmail.com" onclick="closeDrawer()">Email Us</a>
+  <a href="#apply" onclick="closeDrawer()" style="color:var(--gold);">Apply Now →</a>
+</div>
+
+<!-- ── HERO ─────────────────────────────────────────── -->
 <header class="hero" id="home">
+  <div class="hero-bg"></div>
+
   <div class="hero-content">
-    <img src="P Capital.png" class="hero-logo" alt="Pratidnya Capital">
-    <h1>Pratidnya Capital</h1>
-    <div class="tagline">Teaching financial markets as a skill, not a shortcut.</div>
-    <p>Financial markets do not reward urgency or impulse. They demand discipline, responsibility, and depth of understanding.</p>
-    <p class="subtext">An educational initiative. Not an advisory service.</p>
+    <div class="hero-eyebrow">Financial Markets Education</div>
+    <h1>Markets reward<br><em>discipline.</em><br>Not urgency.</h1>
+    <p class="hero-sub">
+      Most people lose money in markets not because they lack intelligence —
+      but because no one ever taught them properly. Pratidnya Capital changes that.
+    </p>
+    <p class="hero-disclaimer">An educational initiative · No tips · No advisory services</p>
+    <a href="#apply" class="btn-primary">Apply for the Next Batch</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">Small</div>
+      <div class="stat-label">Group sizes for depth</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Live</div>
+      <div class="stat-label">Interactive sessions</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Zero</div>
+      <div class="stat-label">Tips or shortcuts</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">1L+</div>
+      <div class="stat-label">Mission: people to reach</div>
+    </div>
   </div>
 </header>
 
-<div class="container">
+<!-- ── PHILOSOPHY ────────────────────────────────────── -->
+<div class="s-divider"></div>
+<section class="section" id="philosophy">
+  <div class="section-inner reveal">
+    <div class="section-label">Philosophy</div>
+    <div>
+      <h2>A vow to think<br><em>before</em> acting.</h2>
+      <p class="body-text">
+        <strong>Pratidnya</strong> means a vow — a deliberate commitment to act with awareness, restraint, and responsibility. In financial markets, this means choosing discipline over impulse, and understanding over excitement.
+      </p>
+      <p class="body-text">
+        Most financial mistakes don't arise from a lack of intelligence. They arise from a lack of structure, emotional discipline, and a framework for making decisions under uncertainty. That is what this initiative addresses.
+      </p>
 
-<section id="philosophy">
-  <h2>Philosophy</h2>
-  <div class="divider"></div>
-
-  <p><strong>Pratidnya</strong> signifies a vow — a deliberate commitment to act with awareness, restraint, and responsibility.</p>
-
-  <p>
-    In the context of financial markets, this philosophy emphasizes disciplined thinking over speculation and long-term understanding over short-term excitement.
-  </p>
-
-  <ul>
-    <li>Process over short-term results</li>
-    <li>Risk awareness over speculation</li>
-    <li>Discipline over impulse</li>
-    <li>Learning over prediction</li>
-    <li>Long-term thinking over instant gratification</li>
-  </ul>
-
-  <p>
-    Financial markets reward patience, consistency, and emotional control. Most financial mistakes arise not from a lack of intelligence, but from a lack of structure and self-discipline.
-  </p>
-
-  <p>
-    Pratidnya Capital promotes an approach rooted in realism rather than excitement. The objective is not to promise success, but to develop the skills and mindset required to operate intelligently in uncertain environments.
-  </p>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-icon">⟳</div>
+          <div class="pillar-title">Process over results</div>
+          <div class="pillar-desc">Good decisions sometimes produce bad outcomes. The focus is always on building the right process, not chasing short-term numbers.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">⚖</div>
+          <div class="pillar-title">Risk awareness first</div>
+          <div class="pillar-desc">Understanding what can go wrong — and how badly — is far more valuable than predicting what will go right.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">◎</div>
+          <div class="pillar-title">Discipline over impulse</div>
+          <div class="pillar-desc">Markets are designed to exploit emotional reactions. Discipline is a skill, and like any skill, it must be trained.</div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">↗</div>
+          <div class="pillar-title">Long-term thinking</div>
+          <div class="pillar-desc">Sustainable participation in markets requires patience, consistency, and a horizon most people are unwilling to hold.</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="initiative">
-  <h2>The Initiative</h2>
-  <div class="divider"></div>
+<!-- ── PROGRAM ───────────────────────────────────────── -->
+<div class="s-divider"></div>
+<section class="section" id="program">
+  <div class="section-inner reveal">
+    <div class="section-label">The Program</div>
+    <div>
+      <h2>Structured learning.<br><em>Not</em> a crash course.</h2>
+      <p class="body-text">
+        This is a live, small-group program for individuals who want to understand financial markets as a genuine skill — not a get-rich-quick scheme. Sessions are kept intentionally small so every participant gets depth of interaction, not a passive broadcast.
+      </p>
+      <p class="body-text">
+        No buy/sell recommendations. No signals. No guaranteed outcomes. Just structured, honest, foundational education in how markets actually work.
+      </p>
 
-  <p>
-    Pratidnya Capital is an educational initiative dedicated to teaching financial markets as a structured skill rather than a shortcut to quick wealth.
-  </p>
+      <div class="program-grid">
+        <div class="program-card">
+          <div class="program-card-label">Format</div>
+          <div class="program-card-value">Live Sessions<br><small style="font-size:0.85rem;color:var(--muted);">Small groups via Zoom</small></div>
+        </div>
+        <div class="program-card">
+          <div class="program-card-label">Group Size</div>
+          <div class="program-card-value">Limited seats<br><small style="font-size:0.85rem;color:var(--muted);">For depth of interaction</small></div>
+        </div>
+        <div class="program-card">
+          <div class="program-card-label">Who It's For</div>
+          <div class="program-card-value">Beginners to intermediates<br><small style="font-size:0.85rem;color:var(--muted);">No prior experience needed</small></div>
+        </div>
+        <div class="program-card">
+          <div class="program-card-label">Next Batch</div>
+          <div class="program-card-value">Applications open<br><small style="font-size:0.85rem;color:var(--muted);"><a href="#apply" style="color:var(--gold-dim);">Apply to know more →</a></small></div>
+        </div>
+      </div>
 
-  <p>The program focuses on helping individuals understand:</p>
-
-  <ul>
-    <li>How financial markets actually function</li>
-    <li>The role of risk management</li>
-    <li>Behavioral aspects of investing and trading</li>
-    <li>Principles of long-term wealth creation</li>
-    <li>Responsible use of capital</li>
-    <li>Decision-making under uncertainty</li>
-  </ul>
-
-  <p>
-    No tips, signals, or guaranteed outcomes are provided. The emphasis is on developing independent thinking and a framework that students can apply throughout their financial lives.
-  </p>
-
-  <p>
-    Sessions are conducted in small groups to allow deeper discussion, clarity, and interaction. The goal is not mass consumption, but meaningful learning.
-  </p>
+      <ul class="curriculum-list" style="margin-top:40px;">
+        <li>How financial markets actually function — mechanics, participants, instruments</li>
+        <li>Core principles of risk management and position sizing</li>
+        <li>Behavioral finance — why smart people make predictable market mistakes</li>
+        <li>Developing a structured, repeatable decision-making process</li>
+        <li>Long-term wealth creation and capital allocation principles</li>
+        <li>How to think independently — without tips, signals, or external noise</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-  <section>
-  <h2>Mission</h2>
-  <div class="divider"></div>
-  <p>
-    Pratidnya Capital exists to improve how individuals understand money,
-    financial markets, and long-term decision-making.
-  </p>
-  <p style="margin-top:16px;">
-    The mission is to empower at least 100,000 people over the next five years
-    with the knowledge required to navigate modern financial systems
-    responsibly — including understanding risk, discipline, and
-    sustainable wealth creation.
-  </p>
-  <p style="margin-top:16px;">
-    Financial independence is not only about income; it is about the freedom
-    to make thoughtful choices without fear or dependence. By improving
-    financial literacy and decision-making, the broader aim is to contribute
-    to a society that is economically aware and resilient.
-  </p>
+<!-- ── FOUNDER ───────────────────────────────────────── -->
+<div class="s-divider"></div>
+<section class="section" id="founder">
+  <div class="section-inner reveal">
+    <div class="section-label">The Founder</div>
+    <div>
+      <h2>Built from<br><em>experience,</em><br>not theory.</h2>
+
+      <div class="founder-block">
+        <div>
+          <div class="founder-photo-area">
+            <img src="sahil.png" alt="Sahil Mishra — Founder, Pratidnya Capital">
+          </div>
+        </div>
+        <div>
+          <div class="founder-name">Sahil Mishra</div>
+          <div class="founder-title">Founder, Pratidnya Capital</div>
+          <p class="body-text">
+            Sahil's understanding of financial markets has been shaped through years of active participation, study, and reflection — not just academic frameworks, but the kind of learning that comes from sitting with real uncertainty.
+          </p>
+          <p class="body-text">
+            His approach has always emphasized risk awareness and long-term thinking over the seductive pull of short-term speculation. Pratidnya Capital is the direct expression of that philosophy — a space where financial education is honest, structured, and grounded in how markets actually behave.
+          </p>
+          <p class="body-text">
+            The goal is not to promise outcomes. It is to build the kind of thinker who can navigate uncertain environments with clarity and discipline — in markets, and in life.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-  <section>
-  <h2>About Pratidnya Capital</h2>
-  <div class="divider"></div>
-  <p>
-    Pratidnya Capital was founded as an educational initiative to address
-    the widespread lack of structured understanding about financial markets.
-  </p>
-  <p style="margin-top:16px;">
-    Many individuals enter markets through speculation, social media trends,
-    or unreliable advice, often leading to poor decisions and unnecessary
-    financial risk.
-  </p>
-  <p style="margin-top:16px;">
-    This initiative focuses on providing a calm, disciplined, and realistic
-    approach to learning — emphasizing fundamentals, risk awareness, and
-    independent thinking rather than shortcuts or guarantees.
-  </p>
+<!-- ── TESTIMONIALS ──────────────────────────────────── -->
+<div class="s-divider"></div>
+<section class="section testimonials-section" style="max-width:100%;padding:110px 6%;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="reveal">
+      <div class="section-label" style="margin-bottom:12px;">What Students Say</div>
+      <h2>Learning that <em>sticks.</em></h2>
+      <p class="body-text">
+        Real feedback from students who've gone through the program.
+        <!-- PLACEHOLDER: Replace below testimonials with real ones from your students -->
+      </p>
+    </div>
+
+    <div class="testimonials-grid reveal reveal-delay-1">
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          For the first time, someone explained markets in a way that made actual sense. No hype. No promises. Just honest, structured thinking.
+        </div>
+        <div class="testimonial-author">
+          <strong>Add Student Name</strong>
+          Profession / City
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          I used to trade based on tips. After this program, I understand why that was a mistake. The behavioral finance sessions alone were worth everything.
+        </div>
+        <div class="testimonial-author">
+          <strong>Add Student Name</strong>
+          Profession / City
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-quote">
+          The small group format makes a huge difference. You can actually ask questions, go deeper, and learn at a real pace.
+        </div>
+        <div class="testimonial-author">
+          <strong>Add Student Name</strong>
+          Profession / City
+        </div>
+      </div>
+    </div>
+    <p style="font-size:0.75rem;color:var(--border);margin-top:16px;font-style:italic;">
+      → Replace the above with real testimonials from your students before publishing.
+    </p>
+  </div>
 </section>
 
-  <section>
-  <h2>About the Founder</h2>
-  <div class="divider"></div>
-  <p>
-    Sahil Mishra is a market participant whose understanding of financial
-    systems has been shaped through experience, study, and reflection.
-  </p>
-  <p style="margin-top:16px;">
-    His approach emphasizes discipline, risk awareness, and long-term
-    thinking rather than short-term speculation or promises of quick gains.
-  </p>
-  <p style="margin-top:16px;">
-    Pratidnya Capital reflects this philosophy — a space where learning is
-    structured, grounded in reality, and focused on developing sound
-    decision-making skills for life, not just for markets.
-  </p>
+<!-- ── MISSION ───────────────────────────────────────── -->
+<div class="s-divider"></div>
+<section class="section">
+  <div class="section-inner reveal">
+    <div class="section-label">Mission</div>
+    <div>
+      <span class="mission-number">1L</span>
+      <h2>Financial literacy<br>for <em>one lakh</em> Indians.</h2>
+      <p class="body-text">
+        Pratidnya Capital exists to improve how individuals understand money, financial markets, and long-term decision-making. The mission is to reach at least 100,000 people over the next five years — not with tips or shortcuts, but with the knowledge required to navigate modern financial systems responsibly.
+      </p>
+      <p class="body-text">
+        Financial independence is not only about income. It is about the freedom to make thoughtful choices without fear or dependence. A society that understands money is a society that is harder to exploit.
+      </p>
+    </div>
+  </div>
 </section>
 
-  <section id="program">
-  <h2>Program Overview</h2>
-  <div class="divider"></div>
-
-  <p>
-    The Pratidnya Capital program is designed as a structured learning journey
-    for individuals who wish to understand financial markets deeply rather than
-    chase short-term gains.
-  </p>
-
-  <p>
-    Conducted through live sessions in small groups, the program focuses on
-    building foundational knowledge, disciplined thinking, and practical
-    decision-making skills that remain relevant across changing market conditions.
-  </p>
-
-  <p>The learning experience includes:</p>
-
-  <ul>
-    <li>Understanding how financial markets function</li>
-    <li>Core principles of risk management</li>
-    <li>Behavioral aspects of trading and investing</li>
-    <li>Developing a structured decision-making process</li>
-    <li>Long-term wealth creation mindset</li>
-    <li>Building independence from tips and external signals</li>
-  </ul>
-
-  <p>
-    The program does not provide buy or sell recommendations, guaranteed
-    outcomes, or shortcuts to wealth. Instead, it aims to cultivate clarity,
-    patience, and responsibility in how individuals approach money and markets.
-  </p>
-
-  <p>
-    Participation is limited to maintain depth of interaction and ensure that
-    each learner receives adequate attention throughout the learning process.
-  </p>
+<!-- ── APPLY ─────────────────────────────────────────── -->
+<div class="s-divider"></div>
+<section class="apply-section" id="apply">
+  <div class="reveal">
+    <div class="section-label" style="display:inline-flex;margin-bottom:16px;">Apply</div>
+    <h2>Ready to learn<br>markets <em>properly?</em></h2>
+    <p class="body-text">
+      Seats are limited by design. If you're serious about understanding financial markets with depth and discipline — not hype — apply for the next batch below.
+    </p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVXnLBeOcpbAA9TvaWuP09zkE5qB7MZtHVGTzvz3iINcvVYg/viewform" target="_blank" class="btn-primary">
+      Apply for the Next Batch
+    </a>
+    <p class="apply-note">
+      Already applied and been accepted?
+      <a href="https://rzp.io/rzp/6J0ez9rF" target="_blank">Pay the course fee here →</a>
+    </p>
+  </div>
 </section>
 
-
-<section id="apply">
-  <h2>Apply</h2>
-  <div class="divider"></div>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdVXnLBeOcpbAA9TvaWuP09zkE5qB7MZtHVGTzvz3iINcvVYg/viewform" target="_blank" class="apply-btn">
-    Apply to the Program
-  </a>
-  <a href="https://rzp.io/rzp/6J0ez9rF" target="_blank" class="apply-btn secondary">
-    Pay Course Fee
-  </a>
-</section>
-
-</div>
-
+<!-- ── FOOTER ─────────────────────────────────────────── -->
 <footer>
-  <strong>PRATIDNYA CAPITAL</strong><br>
-  An educative initiative · No investment advice provided
+  <div class="footer-brand">PRATIDNYA CAPITAL</div>
+  <div class="footer-links">
+    <a href="tel:+918421553808">+91 84215 53808</a>
+    <a href="mailto:sahil842155@gmail.com">sahil842155@gmail.com</a>
+    <a href="#philosophy">Philosophy</a>
+    <a href="#program">Program</a>
+  </div>
+  <div class="footer-copy">
+    An educational initiative · No investment advice provided · No SEBI registration required for education ·
+    © 2025 Pratidnya Capital
+  </div>
 </footer>
 
-
+<!-- ── SCRIPTS ─────────────────────────────────────────── -->
 <script>
-function toggleMenu() {
-  document.getElementById("sidebar").classList.toggle("active");
+// Nav scroll state
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile drawer
+function openDrawer() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('overlay').style.display = 'block';
+  document.body.style.overflow = 'hidden';
 }
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+reveals.forEach(el => observer.observe(el));
 </script>
 
 </body>
 </html>
+
+ 
